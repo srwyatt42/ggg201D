@@ -9,39 +9,39 @@
 **A) Use a program such as R or Excel to generate a scatter plot that shows how expected allele frequency change from genetic drift depends on initial allele frequency. The x-axis should be initial allele frequency and range from 0 to 1. The y-axis should be expected change in allele frequency after one generation. Perform calculations in steps of 0.1 for a population size of 2N=20.**  
 
 ```r
-A.initialprob = seq(0.1,1, by = 0.1)
-A.changingprob = seq(0,1, by = 0.1)
-A.n = 20
-A.SecondGenExpChange = c()
+initial.allele.freq = c(0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1)
+changing.allele.freq = c(0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1)
+N = 20
+Expected.change = c()
 
-for(i in A.initialprob){
+for(i in initial.allele.freq){
   expected.change = c()
-  for(p in seq_along(A.changingprob)){
-    if (p==1){
-      x = A.changingprob[p]*(dbinom((20*A.changingprob[p]), size = A.n, prob = i) + dbinom((20*A.changingprob[p]+1), size = A.n, prob = i))
-      expected.change = append(expected.change, x)}
-    else if (p==11){
-      y = A.changingprob[p]*(dbinom((20*A.changingprob[p]-1), size = A.n, prob = i) + dbinom((20*A.changingprob[p]), size = A.n, prob = i))
-      expected.change = append(expected.change,y)}
+  for(p in changing.allele.freq){
+    if (p==0){
+      x = dbinom((20*i), size = N, prob = i)
+      expected.change = append(expected.change, p*x)}
+    else if (p==1){
+      y = dbinom((20*p), size = N, prob = i)
+      expected.change = append(expected.change,p*y)}
     else{
-      z = A.changingprob[p]*(dbinom((20*A.changingprob[p]-1), size = A.n, prob = i) + dbinom((20*A.changingprob[p]+1), size = A.n, prob = i))  
-      expected.change = append(expected.change,z)}
+      z = dbinom((20*(i-0.1)), size = N, prob = i) + dbinom((20*(i+0.1)), size = N, prob = i)  
+      expected.change = append(expected.change,p*z)}
   }
-  A.SecondGenExpChange = append(A.SecondGenExpChange, sum(expected.change))
+  Expected.change = append(Expected.change, (sum(expected.change)))
 }
 
-catplot(A.initialprob, A.SecondGenExpChange, size = 0.1, cat = 11, xlab = "Initial Allele Frequency", ylab = "New Allele Frequency", main = "Expected Change in Allele Frequency After One Generation")
+catplot(initial.allele.freq, Expected.change, size = 0.1, cat = 11, xlab = "Initial Allele Frequency", ylab = "New Allele Frequency", main = "Expected Change in Allele Frequency After One Generation")
 ```
 
 ![](Problem_Set_2_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
 
 ```
 ## $xs
-##  [1] 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0
+##  [1] 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0
 ## 
 ## $ys
-##  [1] 0.1014412 0.2000122 0.3000000 0.4000000 0.5000010 0.6000366 0.7007979
-##  [8] 0.8114805 1.0086063 1.0000000
+##  [1] 0.0000000 0.9510997 1.1070411 1.1016797 1.0869896 1.0812101 1.0870262
+##  [8] 1.1024776 1.1185703 1.0726763 1.0000000
 ## 
 ## $args
 ## $args$xlab
