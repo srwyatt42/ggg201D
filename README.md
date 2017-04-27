@@ -1,12 +1,14 @@
 # ggg201D
-Population and Quantitative Genetics
+## Population and Quantitative Genetics  
 
-For catplot, you'll need to install it once:
-library(devtools)
-install_github("Gibbsdavidl/CatterPlots")
+For catplot, you'll need to install it once:  
 
-And then load it every time:
-library(CatterPlots) 
+`install.packages("devtools")`  
+`library(devtools)`  
+`install_github("Gibbsdavidl/CatterPlots")`  
 
-Or you can use the much more conventional plot() or ggplot() functions. Documentation in R can always be found by 
-?function_name.
+And then load it every time:  
+`library(CatterPlots)`   
+
+Or you can use the much more conventional `plot()` or `ggplot()` functions. Documentation in R can always be found by 
+`?function_name`
