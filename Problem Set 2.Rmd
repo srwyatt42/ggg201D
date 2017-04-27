@@ -1,10 +1,17 @@
 ---
-title: "Problem Set 2"
-output: pdf_document
+title: "ProblemSet2"
+output:
+  html_document: 
+    keep_md: yes
+  pdf_document: default
+  word_document: default
 ---
 # Population Genetics Problem Set 2  
 ## Sydney Wyatt  
 ### May 1, 2017  
+```{r, include=FALSE}
+library(CatterPlots)
+```
 
 ### Question 1
 
@@ -31,7 +38,6 @@ for(i in A.initialprob){
   A.SecondGenExpChange = append(A.SecondGenExpChange, sum(expected.change))
 }
 
-library(CatterPlots)
 catplot(A.initialprob, A.SecondGenExpChange, size = 0.1, cat = 11, xlab = "Initial Allele Frequency", ylab = "New Allele Frequency", main = "Expected Change in Allele Frequency After One Generation")
 
 #Simple for and if else loops:
