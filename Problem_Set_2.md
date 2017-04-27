@@ -63,6 +63,31 @@ catplot(initial.allele.freq, Expected.change, size = 0.1, cat = 11, xlab = "Init
 
 **B) Use the same program to generate a scatter plot that shows how expected allele frequency change from genetic drift depends on population size. The x-axis should be population size and range from 2N=10 to 2N=100. The y-axis should be expected change in allele frequency after one generation. Perform calculations in steps of 10 with an allele frequency of 0.5.**  
 
+```r
+allele.freq = 0.5
+initial.size = c(10,20,30,40,50,60,70,80,90,100)
+pop.size.change = c(0,10,20,30,40,50,60,70,80,90,100)
+Expected.change.pop = c()
+
+for (i in initial.size){
+  expected.change = c()
+  for (n in pop.size.change){
+    if (n==0){
+      x = dbinom(i, size = i, prob = allele.freq)
+      expected.change = append(expected.change, allele.freq*x)
+    }
+    if (n==100){
+      y = dbinom(n, size = n, prob = allele.freq)
+      expected.change = append(expected.change, allele.freq*y)
+    }
+    else {
+      z = dbinom((i+n), size = i, prob = allele.freq) + dbinom((i-n), size = i, prob = allele.freq)
+      expected.change = append(expected.change, allele.freq*z)
+    }
+  }
+  Expected.change.pop = append(Expected.change.pop, sum(expected.change))
+}
+```
 
 
 ### Question 2  
