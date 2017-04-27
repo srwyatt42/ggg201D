@@ -58,17 +58,7 @@ catplot(A.initialprob, A.SecondGenExpChange, size = 0.1, cat = 11, xlab = "Initi
 ## [1] 0.0 1.1 0.0 1.1
 ```
 
-```r
-#Simple for and if else loops:
-#Not.Div = c()
-#Div = c()
-#for(i in 1:10){
-#  if (i %% 4){
-#    Not.Div = append(Not.Div,i)}
-#  else {
-#    Div = append(Div, i)}
-#}
-```
+
 
 
 **B) Use the same program to generate a scatter plot that shows how expected allele frequency change from genetic drift depends on population size. The x-axis should be population size and range from 2N=10 to 2N=100. The y-axis should be expected change in allele frequency after one generation. Perform calculations in steps of 10 with an allele frequency of 0.5.**  

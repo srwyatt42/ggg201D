@@ -40,6 +40,9 @@ for(i in A.initialprob){
 
 catplot(A.initialprob, A.SecondGenExpChange, size = 0.1, cat = 11, xlab = "Initial Allele Frequency", ylab = "New Allele Frequency", main = "Expected Change in Allele Frequency After One Generation")
 
+```
+
+```{r, include=FALSE}
 #Simple for and if else loops:
 #Not.Div = c()
 #Div = c()
@@ -49,6 +52,8 @@ catplot(A.initialprob, A.SecondGenExpChange, size = 0.1, cat = 11, xlab = "Initi
 #  else {
 #    Div = append(Div, i)}
 #}
+
+
 ```
 
 
