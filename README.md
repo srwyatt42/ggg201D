@@ -10,5 +10,5 @@ For catplot, you'll need to install it once:
 And then load it every time:  
 `library(CatterPlots)`   
 
-Or you can use the much more conventional `plot()` or `ggplot()` functions. Documentation in R can always be found by 
+Or you can use the much more conventional `plot()` or `ggplot()` functions. Documentation in R can always be found by  
 `?function_name`
