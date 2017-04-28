@@ -1,6 +1,5 @@
-# ProblemSet2
-# Population Genetics Problem Set 2  
-## Sydney Wyatt  
+# Population Genetics Problem Set 2
+# Sydney Wyatt  
 ### May 1, 2017  
 
 
@@ -115,6 +114,9 @@ for(i in good.allele.freq){
   f = recessive(bad.S, i)
   NextGenfreq.recessive = append(NextGenfreq.recessive, f)
 }
+
+#Try later
+#rainbowCats(good.allele.freq, NextGenfreq.recessive, ptsize = 0.1, yspread = 0.1, xspread = 0.1, cat = 11, catshiftfix = 0, catshifty = 0, canvas = c(0, 1.5, 0, 1.5))
 
 #plot it!
 catplot(good.allele.freq, NextGenfreq.recessive, size = 0.1, cat = 11, xlab = "Initial Allele Frequency", ylab = "Change in Allele Frequency", main = "1a: S = 0.1, allele is recessive")
@@ -431,6 +433,8 @@ for(i in good.allele.freq){
   f = additive(bad.S, i)
   NextGenfreq.additive = append(NextGenfreq.additive, f)
 }
+
+#rainbowCats(good.allele.freq, NextGenfreq.additive, ptsize = 1, yspread = 0.05, xspread = 0.05, cat = 11, canvas = c(0,1.5,0,1.5))
 
 catplot(good.allele.freq, NextGenfreq.additive, size = 0.1, cat = 11, xlab = "Initial Allele Frequency", ylab = "Change in Allele Frequency", main = "2c: S = 0.25, allele is additive")
 ```
