@@ -135,7 +135,7 @@ for(i in good.allele.freq){
 }
 
 #plot it!
-plot(good.allele.freq, NextGenfreq.recessive, xlab = "Initial Allele Frequency", ylab = "Change in Allele Frequency", main = "1a: S = 0.1, allele is recessive")
+catplot(good.allele.freq, NextGenfreq.recessive, size = 0.1, cat = 11, xlab = "Initial Allele Frequency", ylab = "Change in Allele Frequency", main = "1a: S = 0.1, allele is recessive")
 
 #If "good" allele is dominant:
 NextGenfreq.dominant = c()
@@ -144,7 +144,7 @@ for(i in good.allele.freq){
   NextGenfreq.dominant = append(NextGenfreq.dominant, f)
 }
 
-plot(good.allele.freq, NextGenfreq.dominant, xlab = "Initial Allele Frequency", ylab = "Change in Allele Frequency", main = "1b: S = 0.1, allele is dominant")
+catplot(good.allele.freq, NextGenfreq.dominant, size = 0.1, cat = 11, xlab = "Initial Allele Frequency", ylab = "Change in Allele Frequency", main = "1b: S = 0.1, allele is dominant")
 
 #If "good" allele is additive:
 NextGenfreq.additive = c()
@@ -153,7 +153,7 @@ for(i in good.allele.freq){
   NextGenfreq.additive = append(NextGenfreq.additive, f)
 }
 
-plot(good.allele.freq, NextGenfreq.additive, xlab = "Initial Allele Frequency", ylab = "Change in Allele Frequency", main = "1c: S = 0.1, allele is additive")
+catplot(good.allele.freq, NextGenfreq.additive, size = 0.1, cat = 11,  xlab = "Initial Allele Frequency", ylab = "Change in Allele Frequency", main = "1c: S = 0.1, allele is additive")
 
 #Now we have a new S!
 bad.S = 0.25
@@ -167,7 +167,7 @@ for(i in good.allele.freq){   #iterate over the different "good" allele frequenc
 }
 
 #plot it!
-plot(good.allele.freq, NextGenfreq.recessive, xlab = "Initial Allele Frequency", ylab = "Change in Allele Frequency", main = "2a: S = 0.25, allele is recessive")
+catplot(good.allele.freq, NextGenfreq.recessive, size = 0.1, cat = 11, xlab = "Initial Allele Frequency", ylab = "Change in Allele Frequency", main = "2a: S = 0.25, allele is recessive")
 
 #If "good" allele is dominant:
 NextGenfreq.dominant = c()
@@ -176,7 +176,7 @@ for(i in good.allele.freq){
   NextGenfreq.dominant = append(NextGenfreq.dominant, f)
 }
 
-plot(good.allele.freq, NextGenfreq.dominant, xlab = "Initial Allele Frequency", ylab = "Change in Allele Frequency", main = "2b: S = 0.25, allele is dominant")
+catplot(good.allele.freq, NextGenfreq.dominant, size = 0.1, cat = 11, xlab = "Initial Allele Frequency", ylab = "Change in Allele Frequency", main = "2b: S = 0.25, allele is dominant")
 
 #If "good" allele is additive:
 NextGenfreq.additive = c()
@@ -185,7 +185,7 @@ for(i in good.allele.freq){
   NextGenfreq.additive = append(NextGenfreq.additive, f)
 }
 
-plot(good.allele.freq, NextGenfreq.additive, xlab = "Initial Allele Frequency", ylab = "Change in Allele Frequency", main = "2c: S = 0.25, allele is additive")
+catplot(good.allele.freq, NextGenfreq.additive, size = 0.1, cat = 11, xlab = "Initial Allele Frequency", ylab = "Change in Allele Frequency", main = "2c: S = 0.25, allele is additive")
 
 ```
 
