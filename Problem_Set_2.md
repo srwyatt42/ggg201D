@@ -491,6 +491,7 @@ catplot(good.allele.freq, NextGenfreq.additive, size = 0.1, cat = 11, xlab = "In
 
 
 **B) Four of the six plots from above are highly asymmetric. Explain the biological reason behind these asymmetric patterns.**  
+_The reason for the asymmetry has to do with the mode of inheritance. When the allele is recessive, it is intially more variable between generations until it gets closer to fixation where the change in frequency decreases. When the allele is dominant, it is slower to change in frequency from generation to generation to get to fixation. Selection pressure can also affect the how quickly the allele frequency changes._
 
 
 
