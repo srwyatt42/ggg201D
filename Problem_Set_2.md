@@ -9,15 +9,47 @@
 **A) Use a program such as R or Excel to generate a scatter plot that shows how expected allele frequency change from genetic drift depends on initial allele frequency. The x-axis should be initial allele frequency and range from 0 to 1. The y-axis should be expected change in allele frequency after one generation. Perform calculations in steps of 0.1 for a population size of 2N=20.**  
 
 ```r
-initial.allele.freq = c(0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1)
-changing.allele.freq = c(0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1)
-N = 20
-Expected.change = c()
+#Define function calculating expected delta f given initial allele f (fG1)
+Expected.delta.f <- function(fG1) {
+  #Create and empty data frame that you will eventually fill in
+  delta.f.values = as.data.frame(cbind(rep(NA,21), rep(NA,21)))
+  #Loop through all possible number of alleles given N = 10 and fill in the data frame
+  for(i in 0:20){
+    delta.f = i/20
+    if(0< (fG1 + delta.f) & (fG1+delta.f) <=1){
+      fG2 = fG1 + delta.f
+      n = fG2*(2*N)
+      P.deltaf.isX.a = dbinom(n, size = (2*N), prob = fG1)}
+    else {
+      P.deltaf.isX.a = 0}
+    if(0<= (fG1 + delta.f) & (fG1+delta.f) <1){
+      fG2 = fG1 - delta.f
+      n = fG2*(2*N)
+      P.deltaf.isX.b = dbinom(n, size = (2*N), prob = fG1)}
+    else {
+      P.deltaf.isX.b = 0}
+    P.deltaf.isX = P.deltaf.isX.a + P.deltaf.isX.b
+    delta.f.values[i+1,1] = delta.f
+    delta.f.values[i+1,2] = P.deltaf.isX}
+  #The data frame is full, now multiply the frequency (delta.f.values$V1) by the probability of X = x (delta.f.values$V2) and sum
+  sum(delta.f.values$V1 * delta.f.values$V2)
+}
 
+N = 10
+#Hold our values for the graph
+Values.for.graph = as.data.frame(cbind(rep(NA, 11), rep(NA, 11)))
 
+#Now, find the expected change in f for initial allele frequencies 0-1
+for(i in 0:10){
+  fG1 = i/10
+  Values.for.graph[i+1, 1] = fG1
+  Values.for.graph[i+1, 2] = Expected.delta.f(fG1)}
 
-#catplot(initial.allele.freq, Expected.change, size = 0.1, cat = 11, xlab = "Initial Allele Frequency", ylab = "New Allele Frequency", main = "Expected Change in Allele Frequency After One Generation")
+#Graph
+plot(Values.for.graph, xlab = "Initial Allele Frequency", ylab = "Expected Change in Allele Frequency", main = "Expected Change in Allele Frequency Given Constant Population Size and Variable Initial Allele Frequency")
 ```
+
+![](Problem_Set_2_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
 
 
 
